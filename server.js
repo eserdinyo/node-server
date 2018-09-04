@@ -21,9 +21,9 @@ app.use((req, res, next) => {
     next();
 })
 
-app.use((req, res, next) => {
+/* app.use((req, res, next) => {
     res.render('maintenance.hbs');
-})
+}) */
 
 app.use(express.static(__dirname + '/public'));
 
@@ -50,6 +50,12 @@ app.get('/about', (req, res) => {
         pageTitle: 'About Page',
     });
 });
+
+app.get('/projects', (req, res) => {
+    res.render('projects.hbs', {
+        msg: 'My Projects',
+    })
+})
 
 app.get('/bad', (req, res) => {
     res.send({
